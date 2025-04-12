@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "pro.grino.karateclup"
+    namespace = "pro.grino.karateclub"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "pro.grino.karateclup"
+        applicationId = "pro.grino.karateclub"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

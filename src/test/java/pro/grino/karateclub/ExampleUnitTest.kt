@@ -1,4 +1,4 @@
-package pro.grino.karateclup
+package pro.grino.karateclub
 
 import org.junit.Test
 
