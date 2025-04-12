@@ -36,8 +36,8 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.androidx.core.ktx)
+    // Понижаем версию core-ktx до совместимой с compileSdk 34
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
