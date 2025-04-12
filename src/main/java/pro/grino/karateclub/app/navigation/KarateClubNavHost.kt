@@ -20,8 +20,10 @@ fun KarateClubNavHost(navController: NavHostController) {
     ) {
         // Участники
         composable(route = NavRoutes.PLAYERS_LIST) {
-            // Используем реальный экран списка участников
-            PlayersListScreen(navController)
+            // Временно используем заглушку вместо PlayersListScreen
+            TemporaryScreen(name = "Players List")
+            // Раскомментируйте, когда PlayersListScreen будет готов
+            // PlayersListScreen(navController)
         }
 
         composable(route = NavRoutes.PLAYERS_DETAILS) { backStackEntry ->

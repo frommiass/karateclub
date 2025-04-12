@@ -80,4 +80,10 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Важно добавить Material 3 как отдельную зависимость
+    implementation("androidx.compose.material3:material3:1.2.0")
+
+    // Также нужна AppCompat для обратной совместимости с XML темами
+    implementation("androidx.appcompat:appcompat:1.6.1")
 }

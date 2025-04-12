@@ -14,16 +14,16 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            // Здесь будет тема из ui-common модуля
-            // KarateClubTheme {
-            Surface(
-                modifier = Modifier.fillMaxSize(),
-                color = MaterialTheme.colorScheme.background
-            ) {
-                val navController = rememberNavController()
-                KarateClubNavHost(navController = navController)
+            // Используем Material3 только внутри Compose
+            MaterialTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    val navController = rememberNavController()
+                    KarateClubNavHost(navController = navController)
+                }
             }
-            // }
         }
     }
 }
