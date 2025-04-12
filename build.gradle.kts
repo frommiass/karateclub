@@ -42,8 +42,8 @@
         implementation(project(":core"))
         implementation(project(":data"))
         implementation(project(":domain"))
-        implementation(project(":feature-players"))
-        implementation(project(":feature-groups"))
+        implementation(project(":feature.players"))
+        implementation(project(":feature.groups"))
         implementation(project(":ui-common"))
 
         // Core Android

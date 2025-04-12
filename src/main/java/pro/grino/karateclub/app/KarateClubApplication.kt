@@ -5,6 +5,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
+import org.koin.dsl.module
 
 class KarateClubApplication : Application() {
     override fun onCreate() {
@@ -18,11 +19,11 @@ class KarateClubApplication : Application() {
         }
     }
 
-    // Список модулей Koin (будут импортированы из других модулей)
+    // Список временных модулей для начальной работы приложения
     private val appModules = listOf(
-        // coreModule, будет добавлен позже
-        // dataModule, будет добавлен позже
-        // domainModule, будет добавлен позже
-        // и т.д.
+        module {
+            // Временные зависимости для работы приложения
+            // Позже этот список будет заменен на реальные модули из других пакетов
+        }
     )
 }
