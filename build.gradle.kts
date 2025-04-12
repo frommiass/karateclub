@@ -4,7 +4,7 @@
     }
 
     android {
-        namespace = "pro.grino.karateclub.MODULE_NAME" // Заменить на имя модуля
+        namespace = "pro.grino.karateclub.app"
         compileSdk = 34
 
         defaultConfig {
@@ -42,8 +42,7 @@
         implementation(project(":core"))
         implementation(project(":data"))
         implementation(project(":domain"))
-        implementation(project(":feature-auth"))
-        implementation(project(":feature-participants"))
+        implementation(project(":feature-players"))
         implementation(project(":feature-groups"))
         implementation(project(":ui-common"))
 
