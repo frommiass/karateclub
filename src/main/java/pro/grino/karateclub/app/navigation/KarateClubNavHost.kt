@@ -1,45 +1,43 @@
 package pro.grino.karateclub.app.navigation
 
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import pro.grino.karateclub.core.navigation.NavRoutes
+import pro.grino.karateclub.features.players.PlayersListScreen
 
 @Composable
 fun KarateClubNavHost(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = NavRoutes.PARTICIPANTS_LIST // Изменено начальное назначение на список участников
+        startDestination = NavRoutes.PLAYERS_LIST
     ) {
         // Участники
-        composable(route = NavRoutes.PARTICIPANTS_LIST) {
-            // Здесь будет ParticipantsListScreen из feature-participants модуля
-            // ParticipantsListScreen(navController)
-            // Временная заглушка
-            TemporaryScreen(name = "Participants List")
+        composable(route = NavRoutes.PLAYERS_LIST) {
+            // Используем реальный экран списка участников
+            PlayersListScreen(navController)
         }
 
-        composable(route = NavRoutes.PARTICIPANT_DETAILS) { backStackEntry ->
-            val participantId = backStackEntry.arguments?.getString("participantId")
-            // Здесь будет ParticipantDetailsScreen из feature-participants модуля
-            // ParticipantDetailsScreen(navController, participantId)
+        composable(route = NavRoutes.PLAYERS_DETAILS) { backStackEntry ->
+            val playerId = backStackEntry.arguments?.getString("playerId")
             // Временная заглушка
-            TemporaryScreen(name = "Participant Details for ID: $participantId")
+            TemporaryScreen(name = "PlayerId Details for ID: $playerId")
         }
 
         // Группы
         composable(route = NavRoutes.GROUPS_LIST) {
-            // Здесь будет GroupsListScreen из feature.groups модуля
-            // GroupsListScreen(navController)
             // Временная заглушка
             TemporaryScreen(name = "Groups List")
         }
 
         composable(route = NavRoutes.GROUP_DETAILS) { backStackEntry ->
             val groupId = backStackEntry.arguments?.getString("groupId")
-            // Здесь будет GroupDetailsScreen из feature.groups модуля
-            // GroupDetailsScreen(navController, groupId)
             // Временная заглушка
             TemporaryScreen(name = "Group Details for ID: $groupId")
         }
@@ -49,8 +47,9 @@ fun KarateClubNavHost(navController: NavHostController) {
 // Временный экран-заглушка для отображения, пока нет реализации экранов из feature-модулей
 @Composable
 private fun TemporaryScreen(name: String) {
-    androidx.compose.material3.Text(
+    Text(
         text = "This is a placeholder for $name",
-        style = androidx.compose.material3.MaterialTheme.typography.headlineMedium
+        style = MaterialTheme.typography.headlineMedium,
+        modifier = Modifier.padding(16.dp)
     )
 }
