@@ -7,38 +7,33 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.navigation.compose.rememberNavController
+import pro.grino.karateclub.features.groups.AddGroupScreen
 import pro.grino.karateclub.features.groups.GroupsListScreen
+import pro.grino.karateclub.features.players.AddPlayerScreen
 import pro.grino.karateclub.features.players.PlayersListScreen
 import pro.grino.karateclub.ui.screens.MainScreen
+import pro.grino.karateclub.ui.theme.KarateClubTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        try {
-            setContent {
-                // Используем стандартные цвета Material3 без динамической темы
+        setContent {
+            KarateClubTheme {
+                // Контейнер с цветом фона из темы
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    val navController = rememberNavController()
+
+                    // Главный экран с навигацией между вкладками и внутри них
                     MainScreen(
-                        playersContent = { PlayersListScreen() },
-                        groupsContent = { GroupsListScreen() }
-                    )
-                }
-            }
-        } catch (e: Exception) {
-            // Запасной вариант в случае проблем с темой
-            setContent {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = Color(0xFFFAFAFA) // Светло-серый цвет
-                ) {
-                    MainScreen(
-                        playersContent = { PlayersListScreen() },
-                        groupsContent = { GroupsListScreen() }
+                        navController = navController,
+                        playersListContent = { PlayersListScreen(navController = it) },
+                        playersAddContent = { AddPlayerScreen(navController = it) },
+                        groupsListContent = { GroupsListScreen(navController = it) },
+                        groupsAddContent = { AddGroupScreen(navController = it) }
                     )
                 }
             }
